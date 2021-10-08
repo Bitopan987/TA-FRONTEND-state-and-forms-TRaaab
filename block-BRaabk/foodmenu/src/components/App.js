@@ -1,10 +1,15 @@
 import React from 'react';
-
+import Tags from './Tags.js';
 class App extends React.Component {
   render() {
     return (
       <>
-        <h1>food</h1>
+        <div className="container">
+          <div className="title">
+            <h1>Our Menu</h1>
+          </div>
+          <Tags />
+        </div>
       </>
     );
   }
