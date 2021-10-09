@@ -17,7 +17,16 @@ class Tags extends React.Component {
   render() {
     let categories = data.map((item) => item.category);
     const uniqueCategories = [...new Set(categories)];
-    console.log(categories);
+    let allItems = [];
+    if (!this.state.activeCategory) {
+      allItems = data;
+    } else {
+      data.forEach((elem) => {
+        if (elem.category === this.state.activeCategory) {
+          allItems.push(elem);
+        }
+      });
+    }
     return (
       <>
         <ul className="category">
@@ -35,7 +44,8 @@ class Tags extends React.Component {
             );
           })}
         </ul>
-        <Item />
+
+        <Item allItems={allItems} />
       </>
     );
   }
