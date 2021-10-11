@@ -1,5 +1,6 @@
 import React from 'react';
 import data from './data.json';
+import Modal from './Modal';
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -43,18 +44,20 @@ class App extends React.Component {
                   onMouseOver={() => this.handleMouseOver(i)}
                   onMouseLeave={() => this.handleMouseLeave(i)}
                 >
-                  <div className="flex">
-                    <img src={movie.Images[0]} alt={movie.Title} />
-                    <div className="center">
-                      <h2 className="name">{movie.Title}</h2>
-                    </div>
-                    <div className="center">
-                      <p>{movie.Released}</p>
-                    </div>
-                  </div>
+                  <img src={movie.Images[0]} alt={movie.Title} />
+                  <h2 className="name">{movie.Title}</h2>
+                  <p>{movie.Released}</p>
                   <div className="more-info">
-                    <p>More Info</p>
-                    {this.state.activeIndex === i ? <p>👇️</p> : ''}
+                    {this.state.activeIndex === i ? (
+                      <a href="#movieinfo">
+                        {' '}
+                        <button onClick={() => this.handleClick(i)}>
+                          More Info 👇️
+                        </button>
+                      </a>
+                    ) : (
+                      ''
+                    )}
                   </div>
                 </li>
               );
@@ -63,11 +66,11 @@ class App extends React.Component {
           <section
             className={
               this.state.selectedIndex && !this.state.modalClose
-                ? 'btn-close'
+                ? 'close'
                 : 'hidden'
             }
           >
-            <div className="flex justify-end">
+            <div className="btn-close">
               <button
                 className=""
                 onClick={() =>
@@ -80,6 +83,11 @@ class App extends React.Component {
                 Close
               </button>
             </div>
+            {this.state.selectedIndex ? (
+              <Modal {...data[this.state.selectedIndex]} state={false} />
+            ) : (
+              ''
+            )}
           </section>
         </div>
       </>

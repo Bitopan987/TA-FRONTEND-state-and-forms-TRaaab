@@ -19,18 +19,6 @@ img {
   width: 100%;
 }
 
-.movie img {
-  width: 50%;
-  /* margin-right: 5rem; */
-  height: auto;
-  border-radius: 4px;
-}
-
-.movie h2,
-.movie p {
-  height: 100%;
-}
-
 .center {
   text-align: center;
   width: 25%;
@@ -38,18 +26,15 @@ img {
 }
 
 .movie h2 {
-  font-size: 2.2rem;
+  font-size: 1.2rem;
+  text-align: center;
 }
 
 .movie p {
-  font-size: 1.7rem;
-}
-
-.movie {
-  /* padding: 1rem; */
-  margin-bottom: 1.4rem;
-  background-color: #fff;
-  border-radius: 4px;
+  font-size: 1rem;
+  color: black;
+  padding: 0.3rem;
+  text-align: center;
 }
 
 h1 {
@@ -66,13 +51,10 @@ li {
 }
 
 .movie button {
-  padding: 0.7rem 1.3rem;
-  border-radius: 7px;
-  font-size: 1.2rem;
+  font-size: 1rem;
   border: none;
-  background-color: cadetblue;
-  color: aliceblue;
-  margin-top: 1rem;
+  outline: none;
+  background-color: wheat;
 }
 
 .name {
@@ -86,10 +68,67 @@ li {
   padding: 0.5rem 0;
 }
 
-.more-info p {
-  font-size: 0.9rem;
+.center {
+  padding-top: 1rem;
 }
 
-.more-info p {
-  font-size: 0.9rem;
+.movielist {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.movie {
+  width: 32%;
+  margin-bottom: 2rem;
+  height: 16rem;
+  background-color: wheat;
+}
+
+.movie img {
+  height: 10rem;
+}
+
+/* Modal */
+
+.modal {
+  background-color: wheat;
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+.images {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.images > div {
+  width: 32%;
+  margin: 0.2rem 0.3rem;
+}
+
+.images img {
+  height: 8rem;
+}
+
+.hidden {
+  display: none;
+}
+
+.btn-close {
+  text-align: right;
+}
+
+.btn-close button {
+  padding: 0.5rem 1.2rem;
+  margin-bottom: 0.5rem;
+  background-color: cadetblue;
+  color: white;
+  display: inline-block;
+}
+
+.info {
+  font-weight: 400;
+  padding: 0.2rem;
 }
