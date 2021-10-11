@@ -1,0 +1,44 @@
+*,
+::before,
+::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 50rem;
+}
+
+body {
+  background-color: #ebd8bf;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+  text-align: center;
+  padding: 1rem 0 3rem 0;
+  text-transform: uppercase;
+  font-size: 2rem;
+}
+
+li {
+  list-style: none;
+  margin-bottom: 0.7rem;
+  border-bottom: 1px solid rgb(247, 243, 243);
+  padding-bottom: 0.6rem;
+}
+
+h2 {
+  font-size: 1.7rem;
+  font-weight: 400;
+  cursor: pointer;
+  padding-bottom: 0.5rem;
+}
+
+p {
+  font-size: 1.2rem;
+  font-weight: 200;
+  color: #5c5b5b;
+}
