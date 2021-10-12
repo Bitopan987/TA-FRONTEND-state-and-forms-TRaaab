@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <h2>Learning About Forms</h2>
+        <h2>Controlled vs Uncontrolled Component</h2>
+      </div>
+    </header>
+    <section class="main-sec">
+      <div className="form">
+        <h2>Shipping Address</h2>
+        <form>
+          <label htmlFor="address">Address</label>
+          <input
+            type="text"
+            id="address"
+            name="address"
+            className="form_input"
+            placeholder="Enter Username"
+          />
+          <span>username</span>
+          <label htmlFor="postal">ZIP/Postal Code</label>
+          <input
+            className="form_input"
+            type="text"
+            id="postal"
+            name="postal"
+            onChange="{this.handleInput}"
+            value="{this.state.postal}"
+          />
+
+          <label htmlFor="city">City</label>
+          <input
+            className="form_input"
+            type="text"
+            id="city"
+            name="city"
+            onChange="{this.handleInput}"
+            value="{this.state.city}"
+          />
+
+          <label htmlFor="country">Country</label>
+          <input
+            className="form_input"
+            type="text"
+            id="country"
+            name="country"
+            onChange="{this.handleInput}"
+            value="{this.state.country}"
+          />
+        </form>
+      </div>
+      <div className="form">
+        <h2>Billing Address</h2>
+        <form>
+          <label htmlFor="checkbox">
+            <input
+              className="form_input"
+              type="checkbox"
+              id="checkbox"
+              onChange="{this.handleChecked}"
+              checked="{this.state.checked}"
+              name="checked"
+            />Same as the Shipping Address?</label
+          >
+          <label htmlFor="address">Address</label>
+          <input
+            type="text"
+            id="address"
+            name="address"
+            className="form_input"
+            placeholder="Enter Username"
+          />
+          <span>username</span>
+          <label htmlFor="postal">ZIP/Postal Code</label>
+          <input
+            className="form_input"
+            type="text"
+            id="postal"
+            name="postal"
+            onChange="{this.handleInput}"
+            value="{this.state.postal}"
+          />
+
+          <label htmlFor="city">City</label>
+          <input
+            className="form_input"
+            type="text"
+            id="city"
+            name="city"
+            onChange="{this.handleInput}"
+            value="{this.state.city}"
+          />
+
+          <label htmlFor="country">Country</label>
+          <input
+            className="form_input"
+            type="text"
+            id="country"
+            name="country"
+            onChange="{this.handleInput}"
+            value="{this.state.country}"
+          />
+        </form>
+      </div>
+    </section>
+  </body>
+</html>
