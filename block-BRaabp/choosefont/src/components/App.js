@@ -32,34 +32,40 @@ class App extends React.Component {
     let size = this.state.fontSize + 'px';
     return (
       <>
-        <div className="main">
-          <div className="user-input">
-            <input
-              value={this.state.inputText}
-              onChange={this.handleChange}
-              type="text"
-              placeholder="type something"
-            />
-            <input
-              className="slider"
-              value={this.state.fontSize}
-              type="range"
-              min="16"
-              max="100"
-              onChange={this.handleFontSize}
-            />
-          </div>
+        <div className="container">
+          <header className="header">
+            <div className="user-input">
+              <select className="select">
+                <option value="Custom">Custom</option>
+                <option value="Custom">one</option>
+              </select>
+              <input
+                value={this.state.inputText}
+                onChange={this.handleChange}
+                type="text"
+                placeholder="type something"
+              />
+            </div>
+            <div className="slider">
+              <p className="range_par">{this.state.fontSize}px</p>
+              <input
+                value={this.state.fontSize}
+                type="range"
+                min="16"
+                max="100"
+                onChange={this.handleFontSize}
+              />
+            </div>
+          </header>
           <section>
             <ul className="fonts">
               {fonts.map((font) => (
-                <div className="flex-50 display-box" key={font}>
+                <li className="font" key={font}>
                   <h2>{font}</h2>
-                  <div>
-                    <h2 style={{ fontFamily: font, fontSize: size }}>
-                      {this.state.inputText}
-                    </h2>
-                  </div>
-                </div>
+                  <p style={{ fontFamily: font, fontSize: size }}>
+                    {this.state.inputText}
+                  </p>
+                </li>
               ))}
             </ul>
           </section>
