@@ -1,0 +1,22 @@
+*,
+::before,
+::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.sidebar span,
+.active {
+  border-radius: 50%;
+  padding: 1rem;
+  display: inline-block;
+}
+
+.active {
+  background-color: aquamarine;
+}
+
+body {
+  background-color: aquamarine;
+}
