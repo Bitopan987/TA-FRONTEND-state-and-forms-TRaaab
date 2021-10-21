@@ -13,9 +13,60 @@ class App extends React.Component {
   }
 
   handleAddToCart = (p) => {
-    this.setState((prevState) => ({
-      cartItems: prevState.cartItems.concat(p),
-    }));
+    let isPresent =
+      this.state.cartItems.findIndex((product) => product.id === p.id) !== -1;
+    if (isPresent) {
+      this.incrementQuantity(p.id);
+    } else {
+      this.setState((prevState) => ({
+        cartItems: prevState.cartItems.concat({ ...p, quantity: 1 }),
+      }));
+    }
+  };
+
+  incrementQuantity = (id) => {
+    this.setState((prevState) => {
+      let updatedCartItem = prevState.cartItems.map((p) => {
+        if (p.id === id) {
+          return {
+            ...p,
+            quantity: p.quantity + 1,
+          };
+        }
+        return p;
+      });
+      return {
+        cartItems: updatedCartItem,
+      };
+    });
+  };
+
+  decrementQuantity = (id) => {
+    this.setState((prevState) => {
+      let updatedCartItem = prevState.cartItems.map((p) => {
+        if (p.id === id) {
+          return {
+            ...p,
+            quantity: p.quantity - 1,
+          };
+        }
+        return p;
+      });
+      return {
+        cartItems: updatedCartItem,
+      };
+    });
+  };
+
+  deleteItem = (id) => {
+    this.setState((prevState) => {
+      let updatedCartItem = prevState.cartItems.filter((p) => {
+        return p.id !== id;
+      });
+      return {
+        cartItems: updatedCartItem,
+      };
+    });
   };
 
   handleClick = (size) => {
@@ -43,7 +94,12 @@ class App extends React.Component {
             selectedSizes={this.state.selectedSizes}
             handleAddToCart={this.handleAddToCart}
           />
-          <Cart cartItems={this.state.cartItems} />
+          <Cart
+            cartItems={this.state.cartItems}
+            incrementQuantity={this.incrementQuantity}
+            decrementQuantity={this.decrementQuantity}
+            deleteItem={this.deleteItem}
+          />
         </div>
       </>
     );

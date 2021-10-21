@@ -16,8 +16,18 @@ class Cart extends React.Component {
   };
   render() {
     const { isOpen } = this.state;
+    let totalQuantity = this.props.cartItems.reduce((acc, cv) => {
+      acc = acc + cv.quantity;
+      return acc;
+    }, 0);
+
+    let totalAmount = this.props.cartItems.reduce((acc, cv) => {
+      acc = acc + cv.price * cv.quantity;
+      return acc;
+    }, 0);
+
     if (!isOpen) {
-      return <ClosedCart open={this.open} />;
+      return <ClosedCart open={this.open} totalQuantity={totalQuantity} />;
     }
     return (
       <>
@@ -30,19 +40,33 @@ class Cart extends React.Component {
               <div className="cart-icon-inner">
                 <img alt="" src="/static/trolley.png" />
               </div>
-              <span className="item-count">4</span>
+              <span className="item-count">{totalQuantity}</span>
             </div>
             <h2>Cart</h2>
           </div>
           {this.props.cartItems.map((item) => {
-            return <CartItem {...item} />;
+            return (
+              <CartItem
+                {...item}
+                incrementQuantity={this.props.incrementQuantity}
+                decrementQuantity={this.props.decrementQuantity}
+                deleteItem={this.props.deleteItem}
+              />
+            );
           })}
           <div className="cart-checkout">
-            <div>
+            <div className="flex justify-between">
               <p>SUBTOTAL</p>
-              <p>$ 199.00</p>
+              <p>$ {totalAmount}</p>
             </div>
-            <button>CHECKOUT</button>
+          </div>
+          <div className="center">
+            <button
+              onClick={() => alert(`Total amount is:$ ${totalAmount}`)}
+              className="btn-check"
+            >
+              CHECKOUT
+            </button>
           </div>
         </aside>
       </>
@@ -56,7 +80,7 @@ function ClosedCart(props) {
       <span onClick={props.open} className="open-btn">
         <div className="cart-icon">
           <img alt="cart" src="/static/trolley.png" />
-          <span className="item-count">4</span>
+          <span className="item-count">{props.totalQuantity}</span>
         </div>
       </span>
     </div>
