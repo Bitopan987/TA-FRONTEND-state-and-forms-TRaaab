@@ -43,7 +43,7 @@ class App extends React.Component {
             selectedSizes={this.state.selectedSizes}
             handleAddToCart={this.handleAddToCart}
           />
-          <Cart />
+          <Cart cartItems={this.state.cartItems} />
         </div>
       </>
     );
