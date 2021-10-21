@@ -27,7 +27,9 @@ class Cart extends React.Component {
           </div>
           <div className="cart-body">
             <div className="cart-heading">
-              <div className="card-icon"></div>
+              <div className="cart-icon-inner">
+                <img alt="" src="/static/trolley.png" />
+              </div>
               <span className="item-count">4</span>
             </div>
             <h2>Cart</h2>
@@ -51,11 +53,12 @@ class Cart extends React.Component {
 function ClosedCart(props) {
   return (
     <div className="close-cart">
-      <span onClick={props.open} className="open-btn"></span>
-      <div className="cart-icon">
-        <img alt="cart-icon" src={`/static/products/bag-icon.png`} />
-        <span className="item-count">4</span>
-      </div>
+      <span onClick={props.open} className="open-btn">
+        <div className="cart-icon">
+          <img alt="cart" src="/static/trolley.png" />
+          <span className="item-count">4</span>
+        </div>
+      </span>
     </div>
   );
 }
