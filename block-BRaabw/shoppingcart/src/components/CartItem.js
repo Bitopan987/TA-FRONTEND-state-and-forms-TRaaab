@@ -7,14 +7,28 @@ function CartItem(props) {
         <img alt="" src={`/static/products/${props.sku}_2.jpg`} />
         <div className="card-item-details">
           <p className="card-item-name">{props.title}</p>
-          <p>
+          <h5>
             {props.availableSizes[0]} | {props.style}
-          </p>
-          <p>quantity:1</p>
+          </h5>
+          <h5>Quantity:{props.quantity}</h5>
         </div>
         <div className="cart-price">
-          <p className="cart-cross">x</p>
+          <p onClick={() => props.deleteItem(props.id)} className="remove">
+            X
+          </p>
           <p className="price">{`${props.currencyFormat + props.price}`}</p>
+          <span
+            onClick={() => props.incrementQuantity(props.id)}
+            className="cart-cross"
+          >
+            +
+          </span>
+          <span
+            onClick={() => props.decrementQuantity(props.id)}
+            className="cart-cross"
+          >
+            -
+          </span>
         </div>
       </div>
     </>
